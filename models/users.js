@@ -33,7 +33,7 @@ const Token = sequelize.define('tokens', {
   
   })
 
-const User = sequelize.define('users', {
+const Account = sequelize.define('users', {
     id: {
         type: DataTypes.INTEGER.UNSIGNED,
         allowNull: false,
@@ -90,3 +90,4 @@ const User = sequelize.define('users', {
         },
     ]
 })
+exports.Account = Account
