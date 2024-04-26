@@ -7,8 +7,10 @@ CREATE TABLE users (
     intro VARCHAR(20) NULL DEFAULT NULL,
     profile TEXT NULL DEFAULT NULL,
     avartar VARCHAR(100) DEFAULT '/avartar.jpg',
+    isAdmin BOOL DEFAULT 0,
     createdAt DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    PRIMARY KEY (id),
+    updatedAt DATETIME NULL DEFAULT NULL,
+    PRIMARY KEY (id),   
     UNIQUE INDEX uq_email (email ASC)
 );
 
@@ -17,7 +19,7 @@ CREATE TABLE tokens (
     token VARCHAR(100) NOT NULL,
     expireAt DATETIME NOT NULL,
     PRIMARY KEY (userId, token),
-    UNIQUE INDEX uq_userid (userId ASC)
+    INDEX uq_userid (userId ASC)
 );
 
 CREATE TABLE posts (
@@ -98,3 +100,5 @@ ALTER TABLE post_category ADD CONSTRAINT fk2_post_category FOREIGN KEY (category
 ALTER TABLE lists ADD CONSTRAINT fk_lists FOREIGN KEY (userId) REFERENCES users(id) ON DELETE CASCADE;
 ALTER TABLE items ADD CONSTRAINT fk1_items FOREIGN KEY (listId) REFERENCES lists(id) ON DELETE CASCADE;
 ALTER TABLE items ADD CONSTRAINT fk2_items FOREIGN KEY (postId) REFERENCES posts(id) ON DELETE CASCADE;
+
+INSERT INTO users(firstName, lastName, email, password) VALUES ('Kiet', 'Tran', 'kiettrana1b2@gmail.com', '123');
