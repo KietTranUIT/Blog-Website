@@ -2,6 +2,8 @@ const express = require('express')
 const db = require("./models/database.js")
 const app = express()
 
+const db_user = require('./models/users.js')
+
 require('dotenv').config()
 const host = process.env.HOST || '127.0.0.1'
 const port = process.env.PORT || '8282'
