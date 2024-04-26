@@ -10,7 +10,7 @@ CREATE TABLE users (
     isAdmin BOOL DEFAULT 0,
     createdAt DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updatedAt DATETIME NULL DEFAULT NULL,
-    PRIMARY KEY (id),   
+    PRIMARY KEY (id),       
     UNIQUE INDEX uq_email (email ASC)
 );
 

@@ -1,39 +1,7 @@
 const {sequelize} = require('./database.js')
 const {DataTypes} = require('sequelize')
 
-const Token = sequelize.define('tokens', {
-    userId: {
-        type: DataTypes.BIGINT.UNSIGNED,
-        allowNull: false,
-        primaryKey: true,
-    },
-
-    token: {
-        type: DataTypes.STRING(100),
-        allowNull: false,
-        primaryKey: true,
-    },
-
-    expireAt: {
-        type: DataTypes.DATE,
-        allowNull: false,
-    }
-}, {
-
-    // don't add the timestamp attributes (updatedAt, createdAt)
-    timestamps: false,
-  
-    // If don't want createdAt
-    createdAt: false,
-  
-    // If don't want updatedAt
-    updatedAt: false,
-  
-    // your other configuration here
-  
-  })
-
-const Account = sequelize.define('users', {
+const User = sequelize.define('users', {
     id: {
         type: DataTypes.INTEGER.UNSIGNED,
         allowNull: false,
@@ -90,4 +58,4 @@ const Account = sequelize.define('users', {
         },
     ]
 })
-exports.Account = Account
+module.exports = {User}
